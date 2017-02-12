@@ -54,7 +54,7 @@ while True:
         if(input_state1 == True):
                 if(last_state1 == 1):
                         GPIO.output(17, False)
-                        #oxmc = Popen(["omxplayer", "-b", movie1])
+                        oxmc = Popen(["omxplayer", "-b", movie1])
                         last_state1 = 0
                 else:
                         GPIO.output(17, True)
