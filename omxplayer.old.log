@@ -1,0 +1,25 @@
+﻿01:02:11 T:18446744073698488703   DEBUG: DllBcm: Using omx system library
+01:02:11 T:18446744073698489819   DEBUG: DllOMX: Using omx system library
+01:02:11 T:18446744073698490496   DEBUG: DllAvFormat: Using libavformat system library
+01:02:11 T:18446744073698492746   DEBUG: DBus connection succeeded
+01:02:11 T:18446744073698493836   DEBUG: Keyboard: DBus connection succeeded
+01:02:11 T:18446744073698494017   DEBUG: OMXThread::Create - Thread with id 1897919520 started
+01:02:11 T:18446744073698494099   DEBUG: DllAvUtilBase: Using libavutil system library
+01:02:11 T:18446744073698494128   DEBUG: DllAvCodec: Using libavcodec system library
+01:02:11 T:18446744073698494153   DEBUG: DllAvFormat: Using libavformat system library
+01:02:11 T:18446744073698761044   DEBUG: COMXCoreComponent::Initialize OMX.broadcom.clock input port 80 output port 81 m_handle 0x154e1b0
+01:02:11 T:18446744073698761407   DEBUG: OMXClock::OMXStop
+01:02:11 T:18446744073698761513   DEBUG: OMXClock::OMXSetSpeed(0.00) pause_resume:1
+01:02:11 T:18446744073698761697   DEBUG: DllAvUtilBase: Using libavutil system library
+01:02:11 T:18446744073698761725   DEBUG: DllAvCodec: Using libavcodec system library
+01:02:11 T:18446744073698761749   DEBUG: DllAvFormat: Using libavformat system library
+01:02:11 T:18446744073698763010   DEBUG: COMXCoreComponent::Initialize OMX.broadcom.video_decode input port 130 output port 131 m_handle 0x151b6a0
+01:02:11 T:18446744073698763723   DEBUG: COMXCoreComponent::AllocInputBuffers component(OMX.broadcom.video_decode) - port(130), nBufferCountMin(1), nBufferCountActual(60), nBufferSize(81920), nBufferAlignmen(16)
+01:02:11 T:18446744073698764024   ERROR: COMXCoreComponent::AllocInputBuffers component(OMX.broadcom.video_decode) - OMX_UseBuffer failed with omx_err(0x80001000)
+01:02:11 T:18446744073698764057   ERROR: COMXVideo::Open AllocOMXInputBuffers error (080001000)
+01:02:12 T:18446744073699764609   ERROR: COMXCoreComponent::WaitForInputDone OMX.broadcom.video_decode wait event timeout
+01:02:12 T:18446744073699765177   DEBUG: COMXCoreComponent::Deinitialize : OMX.broadcom.video_decode handle 0x151b6a0
+01:02:12 T:18446744073699765412   DEBUG: OMXClock::OMXStop
+01:02:12 T:18446744073699784375   DEBUG: OMXThread::Run - Exited thread with  id 1897919520
+01:02:12 T:18446744073699784766   DEBUG: OMXThread::StopThread - Thread stopped
+01:02:12 T:18446744073699785905   DEBUG: COMXCoreComponent::Deinitialize : OMX.broadcom.clock handle 0x154e1b0
