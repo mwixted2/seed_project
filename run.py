@@ -45,6 +45,7 @@ last_state2 = 1
 #last_state6 = 1
 
 input_state1= 1
+input_state2= 1
 quit_video = 1
 
 while True:
