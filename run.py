@@ -50,7 +50,7 @@ quit_video = 1
 
 while True:
         input_state1 = GPIO.input(18)
-        #input_state2 = GPIO.input(23)
+        input_state2 = GPIO.input(23)
         #input_state3 = GPIO.input(24)
         #input_state4 = GPIO.input(25)
         #input_state5 = GPIO.input(12)
