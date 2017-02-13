@@ -36,7 +36,7 @@ GPIO.output(17, GPIO.LOW)
 #GPIO.output(13, GPIO.LOW)
 
 
-last_state1 = 1
+#last_state1 = 1
 #last_state2 = 1
 #last_state3 = 1
 #last_state4 = 1
@@ -52,13 +52,14 @@ while True:
         #input_state6 = GPIO.input(16)
 
         if(input_state1 == True):
-                if(last_state1 == 1):
-                        GPIO.output(17, False)
-                        oxmc = Popen(["omxplayer", "-b", movie1])
-                        last_state1 = 0
-                else:
-                        GPIO.output(17, True)
-                        last_state1 = 1
+        	oxmc = Popen(['omxplayer', movie1])
+                #if(last_state1 == 1):
+                        #GPIO.output(17, False)
+            #oxmc = Popen(['omxplayer', movie1])
+                        #last_state1 = 0
+               # else:
+                        #GPIO.output(17, True)
+                        #last_state1 = 1
         #if(input_state2 == True):
                 #if(last_state2 == 1):
                        # GPIO.output(22, False)
