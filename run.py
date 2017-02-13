@@ -61,9 +61,9 @@ while True:
         		player = True
        		elif not input_state1:
         		omxc = Popen(['omxplayer', movie1])
-        		player = True
+        	
 
-        		last_state1 = input_state1
+        last_state1 = input_state1
                 #if(last_state1 == 1):
                         #GPIO.output(17, False)
             #oxmc = Popen(['omxplayer', movie1])
