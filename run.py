@@ -3,15 +3,14 @@ import RPi.GPIO as GPIO
 import sys
 import os
 from subprocess import Popen
-from omxplayer import OMXPlayer
 
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 
-movie1 = OMXPlayer("/home/pi/seed_project/video1.mov")
-movie2 = OMXPlayer('home/pi/seed_project/video2.mov')
+movie1 = ("/home/pi/seed_project/video1.mov")
+movie2 = ('home/pi/seed_project/video2.mov')
 
 GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_UP)
@@ -59,17 +58,15 @@ while True:
 
         if(input_state1 != last_state1):
         	if (input_state1 == True):
-        		movie1.play()
-        		sleep(5)
-        		player.quit()
+        		os.system('killall omxplayer.bin')
+        		omxc = Popen(['omxplayer', movie1])
        		elif not input_state1:
         		omxc = Popen(['omxplayer', movie1])
          
-        if(input_state2 != last_state2):
+        elif(input_state2 != last_state2):
             if(last_state2 == True):
-            	movie2.play()
-            	sleep(5)
-            	player.quit()
+            	os.system('killall omxplayer.bin')
+            	omxc = Popen(['omxplayer', movie2])
            
             elif not input_state2:
             	omxc = Popen(['omxplayer', movie2])
