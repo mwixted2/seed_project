@@ -38,15 +38,15 @@ GPIO.output(22, GPIO.LOW)
 #GPIO.output(13, GPIO.LOW)
 
 
-last_state1 = 0
-last_state2 = 0
+#last_state1 = 0
+#last_state2 = 0
 #last_state3 = 1
 #last_state4 = 1
 #last_state5 = 1
 #last_state6 = 1
 
-input_state1= 1
-input_state2= 1
+input_state1= 0
+input_state2= 0
 quit_video = 1
 
 while True:
@@ -57,25 +57,15 @@ while True:
         #input_state5 = GPIO.input(12)
         #input_state6 = GPIO.input(16)
 
-        if(input_state1 != last_state1):
-        	if (input_state1 == True):
-        		os.system('pkill omxplayer')
-        		omxc = Popen(['omxplayer', movie1])
-       		elif not input_state1:
-       			os.system('killall omxplayer.bin')
-        		omxc = Popen(['omxplayer', movie1])
+        if(input_state1 == 1):
+        	os.system('killall omxplayer.bin')
+        	omxc = Popen(['omxplayer', '-b', movie1])
          
-        elif(input_state2 != last_state2):
-            if(last_state2 == True):
-            	os.system('pkill omxplayer')
-            	omxc = Popen(['omxplayer', movie2])
+        elif(input_state2 == 1):
+        	os.system('killall omxplayer.bin')
+            omxc = Popen(['omxplayer', movie2])
            
-            elif not input_state2:
-            	#os.system('killall omxplayer.bin')
-            	omxc = Popen(['omxplayer', movie2])
-
-        last_state1 = input_state1
-        last_state2 = input_state2
+   
        # if(input_state3 == True):
        #         if(last_state3 == 1):
        #                 GPIO.output(4, False)
