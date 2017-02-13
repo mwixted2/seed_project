@@ -55,7 +55,7 @@ while True:
         #input_state6 = GPIO.input(16)
 
         if(input_state1 != last_state1):
-        	if (player and not input_state1):
+        	if (input_state1 == True):
         		os.system('killall omxplayer.bin')
         		oxmc = Popen(['omxplayer', movie1])
         		player = True
