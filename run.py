@@ -9,7 +9,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 
-movie1 = ("/home/pi/seed_projct/video1.mov")
+movie1 = ("/home/pi/Videos/video1.mov")
 
 GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 #GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_UP)
@@ -36,12 +36,15 @@ GPIO.output(17, GPIO.LOW)
 #GPIO.output(13, GPIO.LOW)
 
 
-#last_state1 = 1
+last_state1 = 1
 #last_state2 = 1
 #last_state3 = 1
 #last_state4 = 1
 #last_state5 = 1
 #last_state6 = 1
+
+input_state1= 1
+quit_video = 1
 
 while True:
         input_state1 = GPIO.input(18)
@@ -51,8 +54,16 @@ while True:
         #input_state5 = GPIO.input(12)
         #input_state6 = GPIO.input(16)
 
-        if(input_state1 == True):
-        	oxmc = Popen(['omxplayer', movie1])
+        if(input_state1 != last_state1):
+        	if (player and not input_state1):
+        		os.system('killall omxplayer.bin')
+        		oxmc = Popen(['omxplayer', movie1])
+        		player = True
+       		elif not input_state1:
+        		omxc = Popen(['omxplayer', movie1])
+        		player = True
+
+        		last_state1 = input_state1
                 #if(last_state1 == 1):
                         #GPIO.output(17, False)
             #oxmc = Popen(['omxplayer', movie1])
