@@ -44,8 +44,8 @@ GPIO.output(22, GPIO.LOW)
 #last_state5 = 1
 #last_state6 = 1
 
-input_state1= 1
-input_state2= 1
+input_state1= 0
+input_state2= 0
 quit_video = 1
 
 while True:
