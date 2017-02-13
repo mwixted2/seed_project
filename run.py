@@ -38,16 +38,16 @@ GPIO.output(22, GPIO.LOW)
 #GPIO.output(13, GPIO.LOW)
 
 
-last_state1 = 1
-last_state2 = 1
+last_state1 = 0
+last_state2 = 0
 #last_state3 = 1
 #last_state4 = 1
 #last_state5 = 1
 #last_state6 = 1
 
-input_state1= 1
-input_state2= 1
-quit_video = 1
+input_state1= 0
+input_state2= 0
+quit_video = 0
 
 while True:
         input_state1 = GPIO.input(18)
@@ -73,6 +73,7 @@ while True:
             	player.pause()
             elif not input_state2:
             	movie2.quit()
+
         last_state1 = input_state1
         last_state2 = input_state2
        # if(input_state3 == True):
