@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import sys
 import os
 from subprocess import Popen
-from oxmplayer import OMXPlayer
+from omxplayer import OMXPlayer
 
 
 GPIO.setmode(GPIO.BCM)
