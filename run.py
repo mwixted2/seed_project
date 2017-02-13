@@ -3,16 +3,21 @@ import RPi.GPIO as GPIO
 import sys
 import os
 from subprocess import Popen
+#python wrapper around the omx player
 from omxplayer import OMXPlayer
 
-
+#tell the GPIO which pins to use
+#either BCM or Board
 GPIO.setmode(GPIO.BCM)
+#turn off warnings i.e. "gpio pins are already in use"
 GPIO.setwarnings(False)
 
+#make instances of the videos to play
+movie1 = OMXPlayer("/home/pi/seed_project/video1.mov")
+movie2 = OMXPlayer('home/pi/seed_project/video2.mov')
 
-movie1 = ("/home/pi/seed_project/video1.mov")
-movie2 = ('home/pi/seed_project/video2.mov')
-
+#initialize input pins
+#these are the buttons
 GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 #GPIO.setup(24, GPIO.IN, pull_up_down = GPIO.PUD_UP)
@@ -21,7 +26,8 @@ GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 #GPIO.setup(16, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 
-
+#initialize the output pins
+#these are the LEDs
 GPIO.setup(17, GPIO.OUT)
 GPIO.setup(22, GPIO.OUT)
 #GPIO.setup(4, GPIO.OUT)
@@ -30,6 +36,7 @@ GPIO.setup(22, GPIO.OUT)
 #GPIO.setup(13, GPIO.OUT)
 
 
+#tell the LEDs to start active low
 GPIO.output(17, GPIO.LOW)
 GPIO.output(22, GPIO.LOW)
 #GPIO.output(4, GPIO.LOW)
@@ -38,18 +45,20 @@ GPIO.output(22, GPIO.LOW)
 #GPIO.output(13, GPIO.LOW)
 
 
-#last_state1 = 0
-#last_state2 = 0
+last_state1 = 1
+last_state2 = 1
 #last_state3 = 1
 #last_state4 = 1
 #last_state5 = 1
 #last_state6 = 1
 
-input_state1= 0
-input_state2= 0
+input_state1= 1
+input_state2= 1
 quit_video = 1
+player = 0
 
 while True:
+	#set variable names to input pins
         input_state1 = GPIO.input(18)
         input_state2 = GPIO.input(23)
         #input_state3 = GPIO.input(24)
@@ -57,45 +66,34 @@ while True:
         #input_state5 = GPIO.input(12)
         #input_state6 = GPIO.input(16)
 
-        if(input_state1 == 1):
-        	os.system('killall omxplayer.bin')
-        	omxc = Popen(['omxplayer', '-b', movie1])
+        
+        if(input_state1 != last_state1):
+        	if(player and not input_state1):
+        		os.system('killall omxplayer.bin')
+        		omxc = Popen(['omxplayer', '-b', movie1])
+        		player = 1
          
-        elif(input_state2 == 1):
-        	os.system('killall omxplayer.bin')
-        	omxc = Popen(['omxplayer', movie2])
+        	elif not input_state1:
+        		omxc = Popen(['omxplayer', movie2])
+        		player = 1
            
    
-       # if(input_state3 == True):
-       #         if(last_state3 == 1):
-       #                 GPIO.output(4, False)
-       #                 last_state3 = 0
-       #         else:
-       #                 GPIO.output(4, True)
-       #                 last_state3 = 1
-       # if(input_state4 == True):
-        #        if(last_state4 == 1):
-        #                GPIO.output(5, False)
-        #                last_state4 = 0
-        #        else:
-        #                GPIO.output(5, True)
-        #                last_state4 = 1
+       elif(input_state2 != last_state2):
+       		if(player and not input_state2):
+       			os.system('killall omxplayer.bin')
+       			omxc = Popen(['omxplayer', '-b', movie2])
+       			player = 1
+       		elif not input_state2:
+       			omxc = Popen(['omxplayer', '-b', movie2])
+       			player = 1
+		
 
-       # if(input_state5 == True):
-       #         if(last_state5 == 1):
-        #                GPIO.output(27, False)
-       #                 last_state5 = 0
-       #         else:
-       #                 GPIO.output(27, True)
-       #                 last_state5 = 1
-       # if(input_state6 == True):
-       #         if(last_state6 == 1):
-       #                 GPIO.output(13, False)
-       #                last_state6 = 0
-       #         else:
-        #                GPIO.output(13, True)
-       #                 last_state6 = 1
+		elif(player and input_state1 and input_state2):
+      		os.system('killall omxplayer.bin')
+      		player = 0
 
+      	last_state1 = input_state1
+      	last_state2 = input_state2
        
                         
 
