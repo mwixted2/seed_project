@@ -66,7 +66,7 @@ while True:
         if(input_state2 != last_state2):
             if(last_state2 == True):
                 os.system('killall omxplayer.bin')
-                 omxc = Popen(['omxplayer', movie2])
+                omxc = Popen(['omxplayer', movie2])
             elif not input_state2:
             	omxc = Popen(['omxplayer', movie2])
        # if(input_state3 == True):
