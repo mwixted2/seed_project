@@ -38,8 +38,8 @@ GPIO.output(22, GPIO.LOW)
 #GPIO.output(13, GPIO.LOW)
 
 
-last_state1 = 0
-last_state2 = 0
+last_state1 = 1
+last_state2 = 1
 #last_state3 = 1
 #last_state4 = 1
 #last_state5 = 1
