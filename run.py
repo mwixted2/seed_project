@@ -10,7 +10,7 @@ GPIO.setwarnings(False)
 
 
 movie1 = ("/home/pi/seed_project/video1.mov")
-movie2 = ('home/pi/seed_project/IMG_0678.m4v')
+movie2 = ('home/pi/seed_project/video2.mov')
 
 GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_UP)
@@ -69,6 +69,9 @@ while True:
                 omxc = Popen(['omxplayer', movie2])
             elif not input_state2:
             	omxc = Popen(['omxplayer', movie2])
+
+        last_state1 = input_state1
+        last_state2 = input_state2
        # if(input_state3 == True):
        #         if(last_state3 == 1):
        #                 GPIO.output(4, False)
