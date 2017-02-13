@@ -10,8 +10,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 
-movie1 = OMXPlayer("/home/pi/seed_project/video1.mov")
-movie2 = OMXPlayer('home/pi/seed_project/video2.mov')
+movie1 = ("/home/pi/seed_project/video1.mov")
+movie2 = ('home/pi/seed_project/video2.mov')
 
 GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_UP)
