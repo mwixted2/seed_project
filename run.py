@@ -61,6 +61,7 @@ while True:
         		os.system('killall omxplayer.bin')
         		omxc = Popen(['omxplayer', movie1])
        		elif not input_state1:
+       			os.system('killall omxplayer.bim')
         		omxc = Popen(['omxplayer', movie1])
          
         elif(input_state2 != last_state2):
@@ -69,6 +70,7 @@ while True:
             	omxc = Popen(['omxplayer', movie2])
            
             elif not input_state2:
+            	os.system('killall omxplayer.bin')
             	omxc = Popen(['omxplayer', movie2])
 
         last_state1 = input_state1
