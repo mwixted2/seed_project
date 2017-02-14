@@ -88,8 +88,8 @@ while True:
        			player = 1
 		
 
-		elif(player and input_state1 and input_state2):
-      		os.system('killall omxplayer.bin')
+		if(player and input_state1 and input_state2):
+			os.system('killall omxplayer.bin')
       		player = 0
 
       	last_state1 = input_state1
