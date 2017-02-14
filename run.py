@@ -18,6 +18,7 @@ GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 #initalize videos and give path to each one
 movie1 = ("/home/pi/seed_project/video1.mov")
@@ -27,6 +28,7 @@ movie4 = ("/home/pi/seed_project/video1.mov")
 movie5 = ("/home/pi/seed_project/video2.mov")
 movie6 = ("/media/pi/RASPBERRY_4/video3.mov")
 movie7 = ("/home/pi/seed_project/video1.mov")
+movie8 = ("/home/pi/seed_project/video2.mov")
 
 #save the last state of the button
 last_state1 = True
@@ -36,6 +38,7 @@ last_state4 = True
 last_state5 = True
 last_state6 = True
 last_state7 = True
+last_state8 = True
 
 #save the input state of the button
 input_state1 = True
@@ -45,6 +48,7 @@ input_state4 = True
 input_state5 = True
 input_state6 = True
 input_state7 = True
+input_state8 = True
 
 #only for debugging purposes
 #quit_video = True
@@ -61,6 +65,7 @@ while True:
     input_state5 = GPIO.input(5)
     input_state6 = GPIO.input(6)
     input_state7 = GPIO.input(13)
+    input_state8 = GPIO.input(19)
     #quit_video = GPIO.input(24)
 
     #if first button is pressed
@@ -145,9 +150,20 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie7])
             player = True
 
+    #if eighth button is pressed
+    if input_state8 != last_state8:
+        if(player and not input_state8):
+            os.system('killall omxplayer.bin')
+            omxc = Popen(['omxplayer', '-b', movie8])
+            player = True
+        elif not input_state8:
+            os.system('killall omxplayer.bin')
+            omxc = Popen(['omxplayer', '-b', movie8])
+            player = True
+
 
     #if omxplayer is running and none of the buttons are pressed
-    if (player and input_state1 and input_state2 and input_state3 and input_state4 and input_state5 and input_state6 and input_state7):
+    if (player and input_state1 and input_state2 and input_state3 and input_state4 and input_state5 and input_state6 and input_state7 and input_state8):
         #os.system('killall omxplayer.bin')
         player = False
 
@@ -164,3 +180,4 @@ while True:
     last_state5 = input_state5
     last_state6 = input_state6
     last_state7 = input_state7
+    last_state8 = input_state8
