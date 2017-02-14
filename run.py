@@ -54,10 +54,11 @@ while True:
             #omxplayer video
             omxc = Popen(['omxplayer', '-b', movie1])
             player = True
-       # elif not input_state1:
-            #os.system('killalll omxplayer.bin')
-           # omxc = Popen(['omxplayer', '-b', movie1])
-            #player = True
+        #checks for the other case: not input_state1
+        #plays video if button is last_state1
+        elif not input_state1:
+            omxc = Popen(['omxplayer', '-b', movie1])
+            player = True
 
     #if second button is pressed
     if input_state2 != last_state2:
