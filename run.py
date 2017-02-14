@@ -29,7 +29,7 @@ while True:
     input_state1 = GPIO.input(4)
     input_state2 = GPIO.input(17)
     input_state3 = GPIO.input(27)
-    quit_video = GPIO.input(24)
+    #quit_video = GPIO.input(24)
 
     #If GPIO(17) is shorted to Ground
     if input_state1 != last_state1:
