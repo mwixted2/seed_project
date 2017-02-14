@@ -18,7 +18,7 @@ GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(6, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 #initalize videos and give path to each one
 movie1 = ("/home/pi/seed_project/video1.mov")
@@ -65,7 +65,7 @@ while True:
     input_state5 = GPIO.input(5)
     input_state6 = GPIO.input(6)
     input_state7 = GPIO.input(13)
-    input_state8 = GPIO.input(19)
+    input_state8 = GPIO.input(26)
     #quit_video = GPIO.input(24)
 
     #if first button is pressed
