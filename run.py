@@ -33,7 +33,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie1])
             player = True
         elif not input_state1:
-            os.system('killalll omxplayer.bin')
+            #os.system('killalll omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
             player = True
 
@@ -49,12 +49,12 @@ while True:
 
     #If omxplayer is running and GIOP(17) and GPIO(18) are not shorted to Ground
     if (player and input_state1 and input_state2):
-        os.system('killall omxplayer.bin')
+        #os.system('killall omxplayer.bin')
         player = False
 
     #GPIO(24) to close omxplayer manually - used during debug
     if quit_video == False:
-        os.system('killall omxplayer.bin')
+        #os.system('killall omxplayer.bin')
         player = False
 
     #Set last_input states
