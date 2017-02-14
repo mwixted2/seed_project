@@ -13,8 +13,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 #make instances of the videos to play
-movie1 = OMXPlayer("/home/pi/seed_project/video1.mov")
-movie2 = OMXPlayer('home/pi/seed_project/video2.mov')
+movie1 = ("/home/pi/seed_project/video1.mov")
+movie2 = ('home/pi/seed_project/video2.mov')
 
 #initialize input pins
 #these are the buttons
