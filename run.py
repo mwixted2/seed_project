@@ -66,9 +66,9 @@ while True:
         #player = False
 
     #GPIO(24) to close omxplayer manually - used during debug
-    if quit_video == False:
+    #if quit_video == False:
         #os.system('killall omxplayer.bin')
-        player = False
+        #player = False
 
     #Set last_input states
     last_state1 = input_state1
