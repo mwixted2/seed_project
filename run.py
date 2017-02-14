@@ -1,98 +1,62 @@
-from time import sleep
 import RPi.GPIO as GPIO
-import sys
 import os
+import sys
 from subprocess import Popen
-#python wrapper around the omx player
-from omxplayer import OMXPlayer
 
-#tell the GPIO which pins to use
-#either BCM or Board
 GPIO.setmode(GPIO.BCM)
-#turn off warnings i.e. "gpio pins are already in use"
-GPIO.setwarnings(False)
 
-#make instances of the videos to play
-movie1 = ("/home/pi/seed_project/video1.mov")
-movie2 = ("/home/pi/seed_project/video2.mov")
+GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-#initialize input pins
-#these are the buttons
-GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_UP)
-GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_UP)
-#GPIO.setup(24, GPIO.IN, pull_up_down = GPIO.PUD_UP)
-#GPIO.setup(25, GPIO.IN, pull_up_down = GPIO.PUD_UP)
-#GPIO.setup(12, GPIO.IN, pull_up_down = GPIO.PUD_UP)
-#GPIO.setup(16, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+movie1 = ("/home/pi/Videos/movie1.mp4")
+movie2 = ("/home/pi/Videos/movie2.mp4")
 
+last_state1 = True
+last_state2 = True
 
-#initialize the output pins
-#these are the LEDs
-GPIO.setup(17, GPIO.OUT)
-GPIO.setup(22, GPIO.OUT)
-#GPIO.setup(4, GPIO.OUT)
-#GPIO.setup(5, GPIO.OUT)
-#GPIO.setup(27, GPIO.OUT)
-#GPIO.setup(13, GPIO.OUT)
+input_state1 = True
+input_state2 = True
+quit_video = True
 
-
-#tell the LEDs to start active low
-GPIO.output(17, GPIO.LOW)
-GPIO.output(22, GPIO.LOW)
-#GPIO.output(4, GPIO.LOW)
-#GPIO.output(5, GPIO.LOW)
-#GPIO.output(27, GPIO.LOW)
-#GPIO.output(13, GPIO.LOW)
-
-
-last_state1 = 1
-last_state2 = 1
-#last_state3 = 1
-#last_state4 = 1
-#last_state5 = 1
-#last_state6 = 1
-
-input_state1= 0
-input_state2= 0
-quit_video = 0
-player = 0
+player = False
 
 while True:
-	#Read states of inputs
-	input_state1 = GPIO.input(18)
-	input_state2 = GPIO.input(23)
-	#quite_video = GPIO.input(24)
+    #Read states of inputs
+    input_state1 = GPIO.input(18)
+    input_state2 = GPIO.input(23)
+    quit_video = GPIO.input(24)
 
-	#If GPIO(17) is shorted to ground
-	if input_state1 != last_state1:
-		if (player and not input_state1):
-			os.system('killall omxplayer.bin')
-			omxc = Popen(['omxplayer', '-b', movie1])
-			player = True
-		elif not input_state1:
-			omxc = Popen(['omxplayer', '-b', movie1])
-			player = True
-	
-	#If GPIO(18) is shorted to ground
-	elif input_state2 != last_state2:
-		if (player and not input_state2):
-			os.system('killall omxplayer.bin')
-			omxc = Popen(['omxplayer', '-b', movie2])
-			player = True
-		elif not input_state2:
-			omxc = Popen(['omxplayer', '-b', movie2])
-			player = True
+    #If GPIO(17) is shorted to Ground
+    if input_state1 != last_state1:
+        if (player and not input_state1):
+            os.system('killall omxplayer.bin')
+            omxc = Popen(['omxplayer', '-b', movie1])
+            player = True
+        elif not input_state1:
+            omxc = Popen(['omxplayer', '-b', movie1])
+            player = True
 
-	#If omxplayer is running and GPIO(17) and GPIO(18) are NOT shorted to ground
-	elif (player and input_state1 and input_state2):
-		os.system('killall omxplayer.bin')
-		player = False
+    #If GPIO(18) is shorted to Ground
+    elif input_state2 != last_state2:
+        if (player and not input_state2):
+            os.system('killall omxplayer.bin')
+            omxc = Popen(['omxplayer', '-b', movie2])
+            player = True
+        elif not input_state2:
+            omxc = Popen(['omxplayer', '-b', movie2])
+            player = True
 
-	#GPIO(24) to close omxplayer manually - used during debug
-	if quit_video == False:
-		os.system('killall omxplayer.bin')
-		player = False
+    #If omxplayer is running and GIOP(17) and GPIO(18) are not shorted to Ground
+    elif (player and input_state1 and input_state2):
+        os.system('killall omxplayer.bin')
+        player = False
 
-	#Set last_input states
-	last_state1 = input_state1
-	last_state2 = input_state2 
+    #GPIO(24) to close omxplayer manually - used during debug
+    if quit_video == False:
+        os.system('killall omxplayer.bin')
+        player = False
+
+    #Set last_input states
+    last_state1 = input_state1
+    last_state2 = input_state2
