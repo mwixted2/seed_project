@@ -220,7 +220,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie12])
             player = True
         elif not input_state12:
-            os.sytem('killall omxplayer.bin')
+            os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie12])
             player = True
 
