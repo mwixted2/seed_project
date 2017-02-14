@@ -30,10 +30,10 @@ while True:
     #If GPIO(17) is shorted to Ground
     if input_state1 != last_state1:
         if (player and not input_state1):
-            os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
             player = True
         elif not input_state1:
+            os.system('killalll omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
             player = True
 
