@@ -102,6 +102,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie4])
             player = True
         elif not input_state4:
+            os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie4])
             player = True
 
@@ -112,6 +113,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie5])
             player = True
         elif not input_state5:
+            os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie5])
             player = True
 
@@ -122,8 +124,10 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie6])
             player = True
         elif not input_state6:
+            os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie6])
             player = True
+    
 
     #if omxplayer is running and none of the buttons are pressed
     if (player and input_state1 and input_state2 and input_state3 and input_state4 and input_state5 and input_state6):
