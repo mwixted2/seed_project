@@ -9,8 +9,8 @@ GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-movie1 = ("/home/pi/Videos/movie1.mp4")
-movie2 = ("/home/pi/Videos/movie2.mp4")
+movie1 = ("/home/pi/seed_project/movie1.mov")
+movie2 = ("/home/pi/seed_project/movie2.mov")
 
 last_state1 = True
 last_state2 = True
