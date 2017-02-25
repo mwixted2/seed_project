@@ -277,7 +277,7 @@ while True:
     if (player and not input_state1 and not input_state2 and not input_state3 and not input_state4 and not input_state5 and not input_state6 and not input_state7 and not input_state8 and not input_state9 and not input_state10 and not input_state11 and not input_state12 and not input_state13 and not input_state14 and not input_state15):
         #os.system('killall omxplayer.bin')
         omxc = Popen(['omxplayer', '-b', movie16])
-        player = True
+        player = False
 
     #GPIO(24) to close omxplayer manually - used during debug
     #if quit_video == False:
