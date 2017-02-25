@@ -275,8 +275,11 @@ while True:
 
     #if omxplayer is running and none of the buttons are pressed
     if (player and input_state1 and input_state2 and input_state3 and input_state4 and input_state5 and input_state6 and input_state7 and input_state8 and input_state9 and input_state10 and input_state11 and input_state12 and input_state13 and input_state14 and input_state15):
-        #os.system('killall omxplayer.bin')
+        os.system('killall omxplayer.bin')
         player = False
+
+    else:
+    	omxc = Popen(['omxplayer', '-b', movie16])
 
     #GPIO(24) to close omxplayer manually - used during debug
     #if quit_video == False:
