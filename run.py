@@ -28,21 +28,22 @@ GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(20, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 #initalize videos and give path to each one
-movie1 = ("/home/pi/seed_project/video1.mov")
-movie2 = ("/home/pi/seed_project/video2.mov")
-movie3 = ("/media/pi/RASPBERRY_4/video3.mov")
-movie4 = ("/home/pi/seed_project/video1.mov")
-movie5 = ("/home/pi/seed_project/video2.mov")
-movie6 = ("/media/pi/RASPBERRY_4/video3.mov")
-movie7 = ("/home/pi/seed_project/video1.mov")
-movie8 = ("/home/pi/seed_project/video2.mov")
-movie9 = ("/media/pi/RASPBERRY_4/video3.mov")
-movie10 = ("/home/pi/seed_project/video1.mov")
-movie11 = ("/home/pi/seed_project/video2.mov")
-movie12 = ("/media/pi/RASPBERRY_4/video3.mov")
-movie13 = ("/home/pi/seed_project/video1.mov")
-movie14 = ("/home/pi/seed_project/video2.mov")
-movie15 = ("/media/pi/RASPBERRY_4/video3.mov")
+movie1 = ("/media/pi/PI/Morgan_trial/collard.mov")
+movie2 = ("/media/pi/PI/Morgan_trial/corn.mov")
+movie3 = ("/media/pi/PI/Morgan_trial/cowpeas.mov")
+movie4 = ("/media/pi/PI/Morgan_trial/grape.mov")
+movie5 = ("/media/pi/PI/Morgan_trial/lettuce.mov")
+movie6 = ("/media/pi/PI/Morgan_trial/mustard.mov")
+movie7 = ("/media/pi/PI/Morgan_trial/okra.mov")
+movie8 = ("/media/pi/PI/Morgan_trial/peanut.mov")
+movie9 = ("/media/pi/PI/Morgan_trial/pepper.mov")
+movie10 = ("/media/pi/PI/Morgan_trial/pumpkin.mov")
+movie11 = ("/media/pi/PI/Morgan_trial/roselle.mov")
+movie12 = ("/media/pi/PI/Morgan_trial/sunflower.mov")
+movie13 = ("/media/pi/PI/Morgan_trial/sweet-potato.mov")
+movie14 = ("/media/pi/PI/Morgan_trial/tomato.mov")
+movie15 = ("/media/pi/PI/Morgan_trial/watermelon.mov")
+movie16 = ("/home/pi/seed_project/video1.mov")
 
 #save the last state of the button
 last_state1 = False
@@ -275,6 +276,7 @@ while True:
     #if omxplayer is running and none of the buttons are pressed
     if (player and input_state1 and input_state2 and input_state3 and input_state4 and input_state5 and input_state6 and input_state7 and input_state8 and input_state9 and input_state10 and input_state11 and input_state12 and input_state13 and input_state14 and input_state15):
         #os.system('killall omxplayer.bin')
+        omxc = Popen(['omxplayer', '-b', movie16])
         player = True
 
     #GPIO(24) to close omxplayer manually - used during debug
