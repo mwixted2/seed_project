@@ -82,7 +82,7 @@ input_state15 = True
 #quit_video = True
 
 #player variable to toggle between player states
-player = True
+player = False
 
 while True:
     #Read states of inputs
@@ -105,29 +105,29 @@ while True:
 
     #if first button is pressed
     if input_state1 != last_state1:
-        if (player and input_state1):
+        if (player and not input_state1):
             #omxplayer video
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = False
+            player = True
         #checks for the other case: not input_state1
         #plays video if button is last_state1
         elif input_state1:
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = False
+            player = True
 
     #if second button is pressed
     if input_state2 != last_state2:
-        if (player and input_state2):
+        if (player and not input_state2):
             #have to kill the any previous instances of omxplayer
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie2])
-            player = False
+            player = True
         elif input_state2:
             #kill any previous instances of omxplayer
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie2])
-            player = False
+            player = True
 
     #if third button is pressed
     if input_state3 != last_state3:
