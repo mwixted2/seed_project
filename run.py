@@ -278,9 +278,6 @@ while True:
         #os.system('killall omxplayer.bin')
         player = False
 
-    else:
-    	os.system('killall omxplayer.bin')
-    	omxc = Popen(['omxplayer', '-b', movie16])
 
     #GPIO(24) to close omxplayer manually - used during debug
     #if quit_video == False:
