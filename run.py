@@ -48,41 +48,41 @@ movie16 = ("/home/pi/seed_project/video1.mov")
 #save the last state of the button
 last_state1 = False
 last_state2 = False
-last_state3 = True
-last_state4 = True
-last_state5 = True
-last_state6 = True
-last_state7 = True
-last_state8 = True
-last_state9 = True
-last_state10 = True
-last_state11 = True
-last_state12 = True
-last_state13 = True
-last_state14 = True
-last_state15 = True
+last_state3 = False
+last_state4 = False
+last_state5 = False
+last_state6 = False
+last_state7 = False
+last_state8 = False
+last_state9 = False
+last_state10 = False
+last_state11 = False
+last_state12 = False
+last_state13 = False
+last_state14 = False
+last_state15 = False
 
 #save the input state of the button
 input_state1 = False
 input_state2 = False
-input_state3 = True
-input_state4 = True
-input_state5 = True
-input_state6 = True
-input_state7 = True
-input_state8 = True
-input_state9 = True
-input_state10 = True
-input_state11 = True
-input_state12 = True
-input_state13 = True
-input_state14 = True
-input_state15 = True
+input_state3 = False
+input_state4 = False
+input_state5 = False
+input_state6 = False
+input_state7 = False
+input_state8 = False
+input_state9 = False
+input_state10 = False
+input_state11 = False
+input_state12 = False
+input_state13 = False
+input_state14 = False
+input_state15 = False
 #only for debugging purposes
 #quit_video = True
 
 #player variable to toggle between player states
-player = True
+player = False
 
 while True:
     #Read states of inputs
@@ -105,16 +105,16 @@ while True:
 
     #if first button is pressed
     if input_state1 != last_state1:
-        if (player and input_state1):
+        if (player and not input_state1):
             #omxplayer video
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = False
+            player = True
         #checks for the other case: not input_state1
         #plays video if button is last_state1
         elif input_state1:
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = False
+            player = True
 
     #if second button is pressed
     if input_state2 != last_state2:
