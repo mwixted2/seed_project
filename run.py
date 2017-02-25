@@ -165,7 +165,7 @@ while True:
 
     #if sixth button is pressed
     if input_state6 != last_state6:
-        if(player and input_state6):
+        if(player and not input_state6):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie6])
             player = True
@@ -176,7 +176,7 @@ while True:
 
     #if seventh button is pressed
     if input_state7 != last_state7:
-        if(player and input_state7):
+        if(player and not input_state7):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie7])
             player = True
@@ -187,7 +187,7 @@ while True:
 
     #if eighth button is pressed
     if input_state8 != last_state8:
-        if(player and input_state8):
+        if(player and not input_state8):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie8])
             player = True
@@ -198,7 +198,7 @@ while True:
 
     #if ninth button is pressed
     if input_state9 != last_state9:
-        if(player and input_state9):
+        if(player and not input_state9):
             os.system('kilall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie9])
             player = True
@@ -209,7 +209,7 @@ while True:
 
     #if tenth button is pressed
     if input_state10 != last_state10:
-        if(player and input_state10):
+        if(player and not input_state10):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie10])
             player = True
@@ -220,7 +220,7 @@ while True:
 
     #if eleventh button is pressed
     if input_state11 != last_state11:
-        if(player and input_state11):
+        if(player and not input_state11):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxlayer', '-b', movie11])
             player = True
@@ -231,7 +231,7 @@ while True:
 
     #if 12 button is pressed
     if input_state12 != last_state12:
-        if(player and input_state12):
+        if(player and not input_state12):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie12])
             player = True
@@ -242,7 +242,7 @@ while True:
 
     #if 13 button is pressed
     if input_state13 != last_state13:
-        if(player and input_state13):
+        if(player and not input_state13):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie13])
             player = True
@@ -253,7 +253,7 @@ while True:
 
     #if 14 button is pressed
     if input_state14 != last_state14:
-        if(player and input_state14):
+        if(player and not input_state14):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie14])
             player = True
@@ -264,7 +264,7 @@ while True:
 
     #if 15 button is pressed
     if input_state15 != last_state15:
-        if(player and input_state15):
+        if(player and not input_state15):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie15])
             player = True
