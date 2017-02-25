@@ -131,7 +131,7 @@ while True:
 
     #if third button is pressed
     if input_state3 != last_state3:
-        if(player and input_state3):
+        if(player and not input_state3):
             #have to kill any previous instances of omxplayer
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie3])
