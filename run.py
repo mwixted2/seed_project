@@ -105,7 +105,7 @@ while True:
 
     #if first button is pressed
     if input_state1 != last_state1:
-        if (player and not input_state1):
+        if (player and input_state1):
             #omxplayer video
             omxc = Popen(['omxplayer', '-b', movie1])
             player = True
@@ -276,7 +276,7 @@ while True:
     #if omxplayer is running and none of the buttons are pressed
     if (player and not input_state1 and not input_state2 and not input_state3 and not input_state4 and not input_state5 and not input_state6 and not input_state7 and not input_state8 and not input_state9 and not input_state10 and not input_state11 and not input_state12 and not input_state13 and not input_state14 and not input_state15):
         #os.system('killall omxplayer.bin')
-        omxc = Popen(['omxplayer', '-b', movie16])
+        #omxc = Popen(['omxplayer', '-b', movie16])
         player = False
 
     #GPIO(24) to close omxplayer manually - used during debug
