@@ -46,7 +46,7 @@ movie15 = ("/media/pi/RASPBERRY_4/video3.mov")
 
 #save the last state of the button
 last_state1 = False
-last_state2 = True
+last_state2 = False
 last_state3 = True
 last_state4 = True
 last_state5 = True
@@ -63,7 +63,7 @@ last_state15 = True
 
 #save the input state of the button
 input_state1 = False
-input_state2 = True
+input_state2 = False
 input_state3 = True
 input_state4 = True
 input_state5 = True
@@ -117,16 +117,16 @@ while True:
 
     #if second button is pressed
     if input_state2 != last_state2:
-        if (player and not input_state2):
+        if (player and input_state2):
             #have to kill the any previous instances of omxplayer
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie2])
-            player = True
-        elif not input_state2:
+            player = False
+        elif input_state2:
             #kill any previous instances of omxplayer
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie2])
-            player = True
+            player = False
 
     #if third button is pressed
     if input_state3 != last_state3:
@@ -275,7 +275,7 @@ while True:
     #if omxplayer is running and none of the buttons are pressed
     if (player and input_state1 and input_state2 and input_state3 and input_state4 and input_state5 and input_state6 and input_state7 and input_state8 and input_state9 and input_state10 and input_state11 and input_state12 and input_state13 and input_state14 and input_state15):
         #os.system('killall omxplayer.bin')
-        player = False
+        player = True
 
     #GPIO(24) to close omxplayer manually - used during debug
     #if quit_video == False:
