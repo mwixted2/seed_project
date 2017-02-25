@@ -103,7 +103,7 @@ while True:
     input_state15 = GPIO.input(20)
     #quit_video = GPIO.input(24)
 
-    #if first button is pressed
+    #if first reed swtich is 
     if input_state1 != last_state1:
         if (player and input_state1):
             #omxplayer video
@@ -143,7 +143,7 @@ while True:
 
     #if fourth button is pressed
     if input_state4 != last_state4:
-        if(player and input_state4):
+        if(player and not input_state4):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie4])
             player = True
@@ -154,7 +154,7 @@ while True:
 
     #if fifth button is pressed
     if input_state5 != last_state5:
-        if(player and input_state5):
+        if(player and not input_state5):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie5])
             player = True
