@@ -45,7 +45,7 @@ movie14 = ("/home/pi/seed_project/video2.mov")
 movie15 = ("/media/pi/RASPBERRY_4/video3.mov")
 
 #save the last state of the button
-last_state1 = True
+last_state1 = False
 last_state2 = True
 last_state3 = True
 last_state4 = True
@@ -62,7 +62,7 @@ last_state14 = True
 last_state15 = True
 
 #save the input state of the button
-input_state1 = True
+input_state1 = False
 input_state2 = True
 input_state3 = True
 input_state4 = True
@@ -81,7 +81,7 @@ input_state15 = True
 #quit_video = True
 
 #player variable to toggle between player states
-player = False
+player = True
 
 while True:
     #Read states of inputs
@@ -107,13 +107,13 @@ while True:
         if (player and not input_state1):
             #omxplayer video
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = True
+            player = False
         #checks for the other case: not input_state1
         #plays video if button is last_state1
         elif not input_state1:
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = True
+            player = False
 
     #if second button is pressed
     if input_state2 != last_state2:
