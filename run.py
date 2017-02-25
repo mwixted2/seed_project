@@ -82,7 +82,7 @@ input_state15 = False
 #quit_video = True
 
 #player variable to toggle between player states
-player = False
+player = True
 
 while True:
     #Read states of inputs
@@ -105,29 +105,29 @@ while True:
 
     #if first button is pressed
     if input_state1 != last_state1:
-        if (player and not input_state1):
+        if (player and input_state1):
             #omxplayer video
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = True
+            player = False
         #checks for the other case: not input_state1
         #plays video if button is last_state1
         elif input_state1:
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = True
+            player = False
 
     #if second button is pressed
     if input_state2 != last_state2:
-        if (player and not input_state2):
+        if (player and input_state2):
             #have to kill the any previous instances of omxplayer
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie2])
-            player = True
+            player = False
         elif input_state2:
             #kill any previous instances of omxplayer
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie2])
-            player = True
+            player = False
 
     #if third button is pressed
     if input_state3 != last_state3:
@@ -274,9 +274,9 @@ while True:
             player = True
 
     #if omxplayer is running and none of the buttons are pressed
-    if (player and not input_state1 and not input_state2 and not input_state3 and not input_state4 and not input_state5 and not input_state6 and not input_state7 and not input_state8 and not input_state9 and not input_state10 and not input_state11 and not input_state12 and not input_state13 and not input_state14 and not input_state15):
+    if (player and input_state1 and input_state2 and input_state3 and input_state4 and input_state5 and input_state6 and input_state7 and input_state8 and input_state9 and input_state10 and input_state11 and input_state12 and input_state13 and input_state14 and input_state15):
         #os.system('killall omxplayer.bin')
-        player = False
+        player = True
 
     #GPIO(24) to close omxplayer manually - used during debug
     #if quit_video == False:
