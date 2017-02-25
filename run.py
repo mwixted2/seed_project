@@ -47,8 +47,8 @@ movie16 = ("/home/pi/seed_project/video1.mov")
 
 #save the last state of the button
 last_state1 = False
-last_state2 = True
-last_state3 = True
+last_state2 = False
+last_state3 = False
 last_state4 = True
 last_state5 = True
 last_state6 = True
@@ -64,8 +64,8 @@ last_state15 = True
 
 #save the input state of the button
 input_state1 = False
-input_state2 = True
-input_state3 = True
+input_state2 = False
+input_state3 = False
 input_state4 = True
 input_state5 = True
 input_state6 = True
@@ -105,16 +105,16 @@ while True:
 
     #if first button is pressed
     if input_state1 != last_state1:
-        if (player and input_state1):
+        if (player and not input_state1):
             #omxplayer video
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = False
+            player = True
         #checks for the other case: not input_state1
         #plays video if button is last_state1
         elif input_state1:
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
-            player = False
+            player = True
 
     #if second button is pressed
     if input_state2 != last_state2:
@@ -274,9 +274,9 @@ while True:
             player = True
 
     #if omxplayer is running and none of the buttons are pressed
-    if (player and input_state1 and input_state2 and input_state3 and input_state4 and input_state5 and input_state6 and input_state7 and input_state8 and input_state9 and input_state10 and input_state11 and input_state12 and input_state13 and input_state14 and input_state15):
-        omxc = Popen(['omxplayer', '-b', movie16])
-        player = True
+    if (player and not input_state1 and not input_state2 and not input_state3 and not input_state4 and not input_state5 and not input_state6 and not input_state7 and not input_state8 and not input_state9 and not input_state10 and not input_state11 and not input_state12 and not input_state13 and not input_state14 and not input_state15):
+        #os.system('killall omxplayer.bin')
+        player = False
 
 
     #GPIO(24) to close omxplayer manually - used during debug
