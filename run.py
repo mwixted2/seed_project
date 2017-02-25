@@ -82,7 +82,7 @@ input_state15 = True
 #quit_video = True
 
 #player variable to toggle between player states
-player = True
+player = False
 
 while True:
     #Read states of inputs
