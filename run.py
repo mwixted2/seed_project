@@ -46,9 +46,9 @@ movie15 = ("/media/pi/PI/Morgan_trial/watermelon.mov")
 movie16 = ("/home/pi/seed_project/video1.mov")
 
 #save the last state of the button
-last_state1 = False
-last_state2 = False
-last_state3 = False
+last_state1 = True
+last_state2 = True
+last_state3 = True
 last_state4 = True
 last_state5 = True
 last_state6 = True
@@ -66,7 +66,7 @@ last_state15 = True
 input_state1 = False
 input_state2 = False
 input_state3 = False
-input_state4 = True
+input_state4 = False
 input_state5 = True
 input_state6 = True
 input_state7 = True
