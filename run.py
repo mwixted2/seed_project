@@ -45,7 +45,8 @@ movie14 = ("/media/pi/PI/Morgan_trial/tomato.mov")
 movie15 = ("/media/pi/PI/Morgan_trial/watermelon.mov")
 movie16 = ("/home/pi/seed_project/video1.mov")
 
-#save the last state of the button
+#save the last state of the reed switch
+#True so that video won't automatically start playing 
 last_state1 = True
 last_state2 = True
 last_state3 = True
@@ -62,7 +63,8 @@ last_state13 = True
 last_state14 = True
 last_state15 = True
 
-#save the input state of the button
+#save the input state of the reed swtich
+#false so video won't automatically start playing
 input_state1 = False
 input_state2 = False
 input_state3 = False
@@ -78,8 +80,7 @@ input_state12 = False
 input_state13 = False
 input_state14 = False
 input_state15 = False
-#only for debugging purposes
-#quit_video = True
+
 
 #player variable to toggle between player states
 player = False
@@ -107,29 +108,35 @@ while True:
     if input_state1 != last_state1:
         if (player and input_state1):
             #omxplayer video
+            os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
             player = True
-        #checks for the other case: not input_state1
+            os.system('xrefresh -display :0')
+        #checks for the other case: input_state1 only
         #plays video if button is last_state1
         elif input_state1:
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie1])
             player = True
+            os.system('xrefresh -display :0')
 
-    #if second button is pressed
+    #if second reed switch is apart
     if input_state2 != last_state2:
         if (player and input_state2):
             #have to kill the any previous instances of omxplayer
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie2])
             player = True
+            os.system('xrefresh -display :0')
+       
         elif input_state2:
             #kill any previous instances of omxplayer
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie2])
             player = True
+            os.system('xrefresh -display :0')
 
-    #if third button is pressed
+    #if third reed swtich is apart
     if input_state3 != last_state3:
         if(player and not input_state3):
             #have to kill any previous instances of omxplayer
@@ -140,30 +147,35 @@ while True:
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie3])
             player = True
+            os.system('xrefresh -display :0')
 
-    #if fourth button is pressed
+    #if fourth reed swtich is apart
     if input_state4 != last_state4:
         if(player and input_state4):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie4])
             player = True
+            os.system('xrefresh -display :0')
         elif not input_state4:
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie4])
             player = True
+            os.system('xrefresh -display :0')
 
-    #if fifth button is pressed
+    #if fifth reed switch is apart
     if input_state5 != last_state5:
         if(player and input_state5):
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie5])
             player = True
+            os.system('xrefresh -display :0')
         elif not input_state5:
             os.system('killall omxplayer.bin')
             omxc = Popen(['omxplayer', '-b', movie5])
             player = True
+            os.system('xrefresh -display :0')
 
-    #if sixth button is pressed
+    #if sixth reed switch is apart
     if input_state6 != last_state6:
         if(player and input_state6):
             os.system('killall omxplayer.bin')
@@ -174,7 +186,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie6])
             player = True
 
-    #if seventh button is pressed
+    #if seventh reed swtich is apart
     if input_state7 != last_state7:
         if(player and input_state7):
             os.system('killall omxplayer.bin')
@@ -185,7 +197,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie7])
             player = True
 
-    #if eighth button is pressed
+    #if eighth reed switch is apart
     if input_state8 != last_state8:
         if(player and input_state8):
             os.system('killall omxplayer.bin')
@@ -196,7 +208,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie8])
             player = True
 
-    #if ninth button is pressed
+    #if ninth reed switch is apart
     if input_state9 != last_state9:
         if(player and input_state9):
             os.system('kilall omxplayer.bin')
@@ -207,7 +219,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie9])
             player = True
 
-    #if tenth button is pressed
+    #if tenth reed switch is apart
     if input_state10 != last_state10:
         if(player and input_state10):
             os.system('killall omxplayer.bin')
@@ -218,7 +230,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie10])
             player = True
 
-    #if eleventh button is pressed
+    #if eleventh reed switch is apart
     if input_state11 != last_state11:
         if(player and input_state11):
             os.system('killall omxplayer.bin')
@@ -229,7 +241,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie11])
             player = True
 
-    #if 12 button is pressed
+    #if 12 reed swtich is apart
     if input_state12 != last_state12:
         if(player and input_state12):
             os.system('killall omxplayer.bin')
@@ -240,7 +252,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie12])
             player = True
 
-    #if 13 button is pressed
+    #if 13 reed swtich is apart
     if input_state13 != last_state13:
         if(player and input_state13):
             os.system('killall omxplayer.bin')
@@ -251,7 +263,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie13])
             player = True
 
-    #if 14 button is pressed
+    #if 14 reed swtich is apart
     if input_state14 != last_state14:
         if(player and input_state14):
             os.system('killall omxplayer.bin')
@@ -262,7 +274,7 @@ while True:
             omxc = Popen(['omxplayer', '-b', movie14])
             player = True
 
-    #if 15 button is pressed
+    #if 15 reed switch is apart
     if input_state15 != last_state15:
         if(player and input_state15):
             os.system('killall omxplayer.bin')
